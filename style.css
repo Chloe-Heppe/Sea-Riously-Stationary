@@ -1,0 +1,665 @@
+/*
+==========================================================
+SEA-RIOUSLY STATIONERY - MAIN CSS
+==========================================================
+The three requested font-family names are:
+1. title      = Chewy
+2. headings   = Fredoka
+3. paragraphs = Quicksand
+
+FONT URLS:
+Title font (Chewy):
+https://fonts.google.com/specimen/Chewy
+
+Heading font (Fredoka):
+https://fonts.google.com/specimen/Fredoka
+
+Paragraph font (Quicksand):
+https://fonts.google.com/specimen/Quicksand
+==========================================================
+*/
+
+/* Import the three Google Fonts used by the website. */
+@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap');
+
+/* Store the main colours in variables so they are easy to change. */
+:root {
+    --deep-blue: #063b66;
+    --ocean-blue: #087ca7;
+    --sky-blue: #58c7df;
+    --foam: #e9fbff;
+    --coral: #ff7b72;
+    --yellow: #ffd86b;
+    --dark: #16324f;
+    --white: #ffffff;
+}
+
+/* Reset the default spacing on the page. */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Give the whole website a soft ocean background. */
+body {
+    font-family: paragraphs, 'Quicksand', sans-serif;
+    color: var(--dark);
+    background-color: #dff8ff;
+
+    /* Animated under-the-sea GIF used as the page background. */
+    background-image: url('https://media.giphy.com/media/3ov9jEnypymbFQJ9CM/giphy.gif');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+/* Add a translucent layer so text stays readable over the GIF. */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(233, 251, 255, 0.76);
+    z-index: -1;
+}
+
+/* Make links inherit the site's typography and remove underlines. */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* The requested title font-family name. */
+.logo,
+h1 {
+    font-family: title, 'Chewy', cursive;
+}
+
+/* The requested heading font-family name. */
+h2,
+h3,
+nav,
+button,
+.button,
+.small-button {
+    font-family: headings, 'Fredoka', sans-serif;
+}
+
+/* The requested paragraph font-family name. */
+p,
+li,
+label,
+input {
+    font-family: paragraphs, 'Quicksand', sans-serif;
+}
+
+/* Style the top navigation bar. */
+.site-header {
+    width: min(1200px, 92%);
+    margin: 20px auto;
+    padding: 16px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.92);
+    border: 3px solid var(--deep-blue);
+    border-radius: 25px;
+    box-shadow: 0 8px 0 rgba(6, 59, 102, 0.15);
+}
+
+/* Make the logo large and playful. */
+.logo {
+    font-size: 2rem;
+    color: var(--deep-blue);
+}
+
+/* Put navigation links next to each other. */
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Add an animated-feeling hover effect to links. */
+nav a {
+    font-weight: 600;
+    transition: transform 0.2s ease;
+}
+
+nav a:hover {
+    color: var(--coral);
+    transform: translateY(-3px);
+}
+
+/* Make the cart number look like a little bubble. */
+.cart-count {
+    display: inline-flex;
+    min-width: 24px;
+    height: 24px;
+    align-items: center;
+    justify-content: center;
+    background: var(--coral);
+    color: white;
+    border-radius: 50%;
+    font-size: 0.8rem;
+}
+
+/* Keep the main content at a comfortable reading width. */
+main {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+}
+
+/* Create the large home page hero area. */
+.hero {
+    min-height: 570px;
+    margin: 30px 0;
+    padding: 60px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 30px;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(8,124,167,0.95), rgba(88,199,223,0.9));
+    border: 4px solid var(--deep-blue);
+    border-radius: 40px;
+    overflow: hidden;
+    color: white;
+    box-shadow: 0 12px 0 rgba(6, 59, 102, 0.18);
+}
+
+/* Small uppercase labels used around the site. */
+.eyebrow {
+    font-family: headings, 'Fredoka', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
+/* Main page headings use the requested title font. */
+h1 {
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 0.95;
+    margin-bottom: 22px;
+}
+
+/* Section headings use the requested headings font. */
+h2 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1;
+    margin-bottom: 15px;
+}
+
+/* Smaller headings. */
+h3 {
+    font-size: 1.5rem;
+}
+
+/* Highlight certain words with the coral colour. */
+h1 span,
+h2 span {
+    color: var(--coral);
+}
+
+/* Make hero paragraph easy to read. */
+.hero-text > p:not(.eyebrow) {
+    max-width: 600px;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+
+/* Make the main animated creature large. */
+.hero-gif {
+    width: 100%;
+    max-height: 380px;
+    object-fit: cover;
+    border: 5px solid white;
+    border-radius: 35px;
+    box-shadow: 0 10px 0 rgba(6, 59, 102, 0.2);
+}
+
+/* Main clickable button style. */
+.button,
+.small-button {
+    display: inline-block;
+    border: 3px solid var(--deep-blue);
+    background: var(--yellow);
+    color: var(--deep-blue);
+    border-radius: 50px;
+    padding: 14px 23px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 5px 0 var(--deep-blue);
+    transition: 0.2s ease;
+}
+
+/* Make buttons move slightly when hovered. */
+.button:hover,
+.small-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 9px 0 var(--deep-blue);
+}
+
+/* Give sections some breathing room. */
+.welcome-section,
+.featured,
+.callout {
+    margin: 80px 0;
+}
+
+/* Style section headings. */
+.section-heading {
+    margin-bottom: 30px;
+}
+
+/* Create three cute feature cards. */
+.creature-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+/* Individual creature feature card. */
+.creature {
+    background: rgba(255,255,255,0.92);
+    border: 3px solid var(--deep-blue);
+    border-radius: 30px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 7px 0 rgba(6, 59, 102, 0.14);
+}
+
+/* Make the creature emoji large. */
+.creature-icon {
+    font-size: 4rem;
+    animation: bob 2.5s ease-in-out infinite;
+}
+
+/* Simple floating animation for sea creature icons. */
+@keyframes bob {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Put product cards into a responsive grid. */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+/* Product card styling. */
+.product-card {
+    overflow: hidden;
+    background: rgba(255,255,255,0.96);
+    border: 3px solid var(--deep-blue);
+    border-radius: 30px;
+    box-shadow: 0 8px 0 rgba(6, 59, 102, 0.15);
+    transition: transform 0.2s ease;
+}
+
+/* Lift product cards slightly on hover. */
+.product-card:hover {
+    transform: translateY(-7px) rotate(-1deg);
+}
+
+/* Product image area. */
+.product-card > img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Product text area. */
+.product-info {
+    padding: 22px;
+}
+
+/* Tiny product category text. */
+.product-creature {
+    color: var(--ocean-blue);
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+/* Product description. */
+.product-info p:not(.product-creature) {
+    line-height: 1.6;
+    margin: 12px 0;
+}
+
+/* Product price. */
+.product-info strong {
+    display: block;
+    font-family: headings, 'Fredoka', sans-serif;
+    font-size: 1.5rem;
+    color: var(--coral);
+    margin-bottom: 16px;
+}
+
+/* Special callout section near the bottom of the home page. */
+.callout {
+    padding: 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    background: var(--deep-blue);
+    color: white;
+    border-radius: 35px;
+}
+
+/* The light button works better on the dark callout. */
+.light-button {
+    background: var(--yellow);
+}
+
+/* Intro section for Store and Cart pages. */
+.page-intro {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+/* Page intro paragraph. */
+.page-intro > p:last-child {
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.7;
+}
+
+/* Make the store grid slightly larger. */
+.store-grid {
+    margin-bottom: 80px;
+}
+
+/* Product detail layout. */
+.detail-page {
+    margin: 60px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+/* Product detail image box. */
+.detail-image {
+    background: white;
+    border: 4px solid var(--deep-blue);
+    border-radius: 35px;
+    padding: 20px;
+    box-shadow: 0 10px 0 rgba(6, 59, 102, 0.15);
+}
+
+/* Product detail image. */
+.detail-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+/* Detail price. */
+.price {
+    color: var(--coral);
+    font-family: headings, 'Fredoka', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Product detail description. */
+.detail-description {
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* Product feature list. */
+.feature-list {
+    list-style: none;
+    line-height: 2;
+    margin-bottom: 25px;
+}
+
+/* Back link under the Add to Cart button. */
+.back-link {
+    display: block;
+    margin-top: 25px;
+    font-weight: 700;
+    color: var(--ocean-blue);
+}
+
+/* Cart page layout. */
+.cart-layout {
+    display: grid;
+    grid-template-columns: 1.5fr 0.8fr;
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+/* Individual cart item. */
+.cart-item {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: white;
+    border: 3px solid var(--deep-blue);
+    border-radius: 25px;
+}
+
+/* Cart item image. */
+.cart-item img {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* Cart item information. */
+.cart-item-info {
+    flex: 1;
+}
+
+/* Quantity input. */
+.cart-item-info input {
+    width: 80px;
+    margin: 10px 0;
+    padding: 10px;
+    border: 2px solid var(--ocean-blue);
+    border-radius: 10px;
+}
+
+/* Remove link. */
+.remove-link {
+    display: block;
+    color: var(--coral);
+    font-weight: 700;
+}
+
+/* Update button area. */
+.update-button {
+    border: 3px solid var(--deep-blue);
+}
+
+/* Checkout summary box. */
+.checkout-box {
+    height: fit-content;
+    padding: 30px;
+    background: var(--deep-blue);
+    color: white;
+    border-radius: 30px;
+    border: 3px solid var(--deep-blue);
+    position: sticky;
+    top: 20px;
+}
+
+/* Total row. */
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid rgba(255,255,255,0.3);
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+    padding: 20px 0;
+    margin: 25px 0;
+}
+
+/* Checkout button fills the summary box. */
+.checkout-button {
+    width: 100%;
+}
+
+/* Small checkout explanation. */
+.checkout-note {
+    margin-top: 20px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+/* Empty cart box. */
+.empty-cart {
+    text-align: center;
+    background: white;
+    border: 3px solid var(--deep-blue);
+    border-radius: 30px;
+    padding: 60px 30px;
+    margin-bottom: 80px;
+}
+
+/* Large emoji inside empty cart. */
+.big-emoji {
+    font-size: 5rem;
+    margin-bottom: 20px;
+}
+
+/* Registration and login layout. */
+.form-page {
+    display: flex;
+    justify-content: center;
+    padding: 70px 0;
+}
+
+/* Registration and login card. */
+.form-card {
+    width: min(520px, 100%);
+    padding: 40px;
+    background: white;
+    border: 3px solid var(--deep-blue);
+    border-radius: 30px;
+    box-shadow: 0 8px 0 rgba(6, 59, 102, 0.15);
+}
+
+/* Form labels. */
+.form-card label {
+    display: block;
+    font-weight: 700;
+    margin-top: 18px;
+    margin-bottom: 7px;
+}
+
+/* Form input boxes. */
+.form-card input {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid var(--ocean-blue);
+    border-radius: 12px;
+    font-size: 1rem;
+}
+
+/* Give the form button some space. */
+.form-card button {
+    margin: 25px 0;
+}
+
+/* Error and information message. */
+.message,
+.success-message {
+    padding: 12px;
+    margin: 18px 0;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+/* Error message style. */
+.message {
+    background: #ffe1de;
+    color: #9c332c;
+}
+
+/* Success message style. */
+.success-message {
+    background: #d9ffe8;
+    color: #167443;
+}
+
+/* Footer styling. */
+.site-footer {
+    margin-top: 80px;
+    padding: 40px 20px;
+    text-align: center;
+    background: var(--deep-blue);
+    color: white;
+    line-height: 2;
+}
+
+/* Make the site work on smaller screens. */
+@media (max-width: 850px) {
+    .site-header {
+        flex-direction: column;
+    }
+
+    .hero,
+    .detail-page,
+    .cart-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .creature-row,
+    .product-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .callout {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .checkout-box {
+        position: static;
+    }
+}
+
+/* Make cards single-column on very small screens. */
+@media (max-width: 550px) {
+    .hero {
+        padding: 35px 22px;
+    }
+
+    .creature-row,
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cart-item {
+        align-items: flex-start;
+    }
+
+    .cart-item img {
+        width: 90px;
+        height: 90px;
+    }
+
+    h1 {
+        font-size: 3.2rem;
+    }
+}
